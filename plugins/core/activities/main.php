@@ -1,9 +1,11 @@
-<?php 
+<?php
 /*
  Plugin name:Activities;
 	
 */
-if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
+if (!defined('UADMIN_AB_ROOT')) {
+	die("You not have permisions");
+}
 ?>
 
 <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
@@ -13,22 +15,23 @@ if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
 
 
 <div class="container-fluid mt-3">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="?">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Activities</li>
-        </ol>
-    </nav>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="?">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Activities</li>
+		</ol>
+	</nav>
 </div>
 
 
 
 
-<div class="container my-3"     ng-app="app" ng-controller="activities-controller">
-		
+<div class="container my-3" ng-app="app" ng-controller="activities-controller">
+
 
 	<div class="card card-body">
-		<div class="text-right">
+		<!-- changes right to end -->
+		<div class="text-end">
 			<buton class="btn btn-outline-danger btn-sm" onclick="del_all()"> <i class="fa fa-trash"></i> Erase activity logs</buton>
 		</div>
 	</div>
@@ -40,9 +43,9 @@ if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
 			<div class="col">
 				<label for="id__">user is...</label>
 
-	            
-				
-				<select name="users" class="form-control form-control-sm" id="users" ng-model="filter.user" >
+
+
+				<select name="users" class="form-control form-control-sm" id="users" ng-model="filter.user">
 
 					<option value="">Any...</option>
 					<option data-ng-repeat="user in presets.users track by $index" value="{{user}}">{{(php_js.users | filter:{ui:user})[0].name }}</option>
@@ -69,10 +72,10 @@ if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
 
 				</select>
 			</div>
-		</div>	
+		</div>
+		<!-- changes right to end -->
 
-
-		<div class="text-right mt-3">
+		<div class="text-end mt-3">
 			<button class="btn btn-outline-warning btn-sm" data-ng-click="filter_reset()">Resset</button>
 		</div>
 	</div>
@@ -81,11 +84,10 @@ if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
 
 <div class="container">
 	<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
-            
+
 </div>
 
 
 <script type="text/javascript" src="<?php echo $k_plugin->url_ ?>js/dataTbale.js?v=<?php echo uniqid() ?>"></script>
 <script type="text/javascript" src="<?php echo $k_plugin->url_ ?>js/ng.js?v=<?php echo uniqid() ?>"></script>
 <script type="text/javascript" src="<?php echo $k_plugin->url_ ?>js/js.js?v=<?php echo uniqid() ?>"></script>
-

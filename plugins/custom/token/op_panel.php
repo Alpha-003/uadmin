@@ -82,7 +82,8 @@ $link_ops=$sql->query("select *  from opt where link='$link' limit 1")->fetchArr
 
                      <li class="nav-item ">
                         <a class="nav-link " href="<?php echo $k_plugin->ajax_url.'&sub=patterns&ui='.$ui;?>">
-                             Op. Patterns &nbsp; <span class="fa fa-question-circle-o float-right" title="Help" data-toggle="popover" data-content="You can create patterns of operations which will trigger each after another automatically" ></span>
+                        <!-- changes right to end -->
+                             Op. Patterns &nbsp; <span class="fa fa-question-circle-o float-end" title="Help" data-toggle="popover" data-content="You can create patterns of operations which will trigger each after another automatically" ></span>
                         </a>
                     </li>
                 </ul>

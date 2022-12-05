@@ -47,7 +47,8 @@ if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
                 <div class="col-sm-4">
                     <div class="card animated zoomIn">
                         <div class="card-header">
-                            Sign In <small class="float-right">V.<?php echo UADMIN_VERSION ?></small>
+                            <!-- changes right to end -->
+                            Sign In <small class="float-end">V.<?php echo UADMIN_VERSION ?></small>
                         </div>
                         <div class="card-body ">
                             <form name="login-form" id="login-form" novalidate onsubmit="login();return false">

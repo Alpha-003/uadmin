@@ -7,6 +7,7 @@ if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
 ?>
 
 <div class="container " style="margin-top: 100px">
+<!-- not changes but jumbotron not supported in bootstarp v-5 -->
 	<div class="jumbotron">
 		<h3>Welcome to U-Panel <?php echo UADMIN_VERSION ?></h3>
 		<p>Universal Panel for storing reports and dynamic dialogue with visitors</p>

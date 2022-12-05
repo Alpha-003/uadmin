@@ -41,7 +41,8 @@ if (!defined('UADMIN_AB_ROOT')) {die("You not have permisions");}
         </div>
         <div class="row">
             <div class="col">
-                <div class="text-right">
+                <!-- changes right to end -->
+                <div class="text-end">
                     <button class="btn btn-outline-info">Save</button>
                     <a class="btn btn-outline-info" onclick="test()"> <i class="fa fa-repeat"></i> Test</a>
                 </div>
