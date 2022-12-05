@@ -55,7 +55,8 @@ var php_js = <?php echo json_encode($php_js) ?>
                 <div class="list-group">
                     <div class="list-group-item list-group-item-action" ng-repeat="user in users track by $index " ng-click="$parent.selected_user=users[$index]" ng-class="{'active':$parent.selected_user.ui==user.ui}">
                         {{user.name}}
-                        <button class="btn btn-danger btn-sm float-right" ng-click="remove_user($event,user.ui,$index)">
+                        <!-- changes right to end -->
+                        <button class="btn btn-danger btn-sm float-end" ng-click="remove_user($event,user.ui,$index)">
                             <span class="fa fa-trash-o"></span>
                         </button>
                     </div>
@@ -76,7 +77,8 @@ var php_js = <?php echo json_encode($php_js) ?>
                                 <div class="form-group">
                                     <input type="text" ng-model="data.new_pass" placeholder="Enter new Password..." name="new_pass" class="form-control" id="new_pass" class="">
                                 </div>
-                                <div class="form-group text-right">
+                                <!-- changes right to end -->
+                                <div class="form-group text-end">
                                     <button class="btn btn-outline-primary" ng-click="udpate_pass();">Save</button>
                                 </div>
                             </div>
@@ -97,7 +99,8 @@ var php_js = <?php echo json_encode($php_js) ?>
                                 <div class="plugins-list">
                                     <div class="plugin-item clearfix" ng-repeat="plugin in plugins | filter:data.plugin_search | orderBy:'name'" ng-hide="plugin.id=='welcome'">
                                         <span class="plugin-name">{{plugin.name}}</span>
-                                        <span class="plugin-ch pull-right ">
+                                        <!-- changes pull-right to float-end -->
+                                        <span class="plugin-ch floas-end ">
                                             <input type="checkbox" ng-checked="selected_user.perm_view.indexOf(plugin.id)!=-1" ng-disabled="plugin.id=='profile' || plugin.id=='users'" ng-click="change_selected_user_prem_view(plugin.id,selected_user.perm_view.indexOf(plugin.id)!=-1)">
                                         </span>
                                     </div>
@@ -122,7 +125,8 @@ var php_js = <?php echo json_encode($php_js) ?>
                                 <div class="plugins-list">
                                     <div class="plugin-item clearfix" ng-repeat="action in actions | filter:data.action_search | orderBy:'desc'">
                                         <span class="plugin-name">{{action.desc}}</span>
-                                        <span class="plugin-ch pull-right ">
+                                        <!-- changes pull right to float-end -->
+                                        <span class="plugin-ch float-end ">
                                             <input type="checkbox" ng-checked="selected_user.perm_action.indexOf(action.id)==-1" ng-disabled="action.id=='udpate_style'" ng-click="change_selected_user_perm_action(action.id,selected_user.perm_action.indexOf(action.id)!=-1)">
                                         </span>
                                     </div>
